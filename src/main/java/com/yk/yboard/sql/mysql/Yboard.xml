@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="Yboard">
+
+	<select id="selectTotalCountYboard"  resultType="int" parameterType="Yboard">
+		SELECT COUNT(*)
+		FROM yboard
+		<trim prefix="WHERE" prefixOverrides="AND |OR">
+			<if test="Ognl@IsNotEmpty(searchText)">				
+				AND  ${searchColumn}  LIKE CONCAT('',#{searchText},'%')
+			</if>
+			<if test="Ognl@IsNotEmpty(priority)">				
+				<![CDATA[ 
+					AND priority >= #{priority}
+				]]>	
+			</if>		
+		</trim>		
+		ORDER BY registDate DESC LIMIT #{start}, #{limit}		
+	</select>
+	
+	<select id="selectYboard"  resultType="Yboard" parameterType="Yboard">
+		SELECT boardID, boardTitle, priority, userName, userGender, registDate
+		FROM yboard
+		<trim prefix="WHERE" prefixOverrides="AND |OR">
+			<if test="Ognl@IsNotEmpty(searchText)">				
+				AND  ${searchColumn}  LIKE CONCAT('',#{searchText},'%')
+			</if>
+			<if test="Ognl@IsNotEmpty(priority)">				
+				<![CDATA[ 
+					AND priority >= #{priority}
+				]]>	
+			</if>		
+		</trim>		
+		ORDER BY registDate DESC LIMIT #{start}, #{limit}
+	</select>
+	
+	<select id="viewYboard" resultType="Yboard" parameterType="map">
+		SELECT boardID, boardTitle, boardContent, priority, userName, userGender, registDate
+		FROM yboard WHERE boardID = #{boardID}
+	</select>
+	
+	<insert id="insertYboard" parameterType="Yboard">
+		INSERT INTO yboard(boardTitle, boardContent, priority, userName, userGender, registDate)
+		VALUES(#{boardTitle}, #{boardContent}, #{priority}, #{userName}, #{userGender}, NOW())
+	</insert>
+	
+	<update id="updateYboard" parameterType="Yboard">
+		UPDATE yboard
+	 	<trim prefix="SET" suffixOverrides=",">
+	 		<if test="Ognl@IsNotEmpty(boardTitle)">				
+	 			boardTitle = #{boardTitle},
+	 		</if>	 	
+	 		<if test="Ognl@IsNotEmpty(boardContent)">				
+	 			boardContent = #{boardContent},
+	 		</if>	 	 		
+	 		<if test="Ognl@IsNotEmpty(userName)">				
+	 			userName = #{userName},
+	 		</if>	 		 	
+	 		<if test="Ognl@IsNotEmpty(userGender)">				
+	 			userGender = #{userGender},
+	 		</if>		
+	 	</trim>
+	 	WHERE boardID = #{boardID}
+	</update>
+	
+	<delete id="deleteYboard" parameterType="map">
+		DELETE FROM yboard WHERE boardID= #{boardID}
+	</delete>
+</mapper>    

@@ -118,6 +118,20 @@
 		</dependency>
 		
 		<!-- -##########   yboard 에서 추가된 모듈 ################### -->
+		<!--  Spring JUNIT 테스트  -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		
+		<!--  JSON 연동용 : MappingJacksonHttpMessageConverter -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.8.1</version>
+		</dependency>		
+				
 		<!--  BasicDataSource 추가 -->
 		<dependency>
 			<groupId>commons-dbcp</groupId>
@@ -150,6 +164,11 @@
 			<artifactId>mybatis-spring</artifactId>
 			<version>1.1.0</version>
 		</dependency>		    
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.2</version>
+		</dependency>		
 		<!-- ############################################### -->    
 		        
 	</dependencies>

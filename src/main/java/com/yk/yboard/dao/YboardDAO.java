@@ -1,0 +1,55 @@
+package com.yk.yboard.dao;
+
+import java.util.List;
+import java.util.Map;
+
+import com.yk.yboard.dto.Yboard;
+
+
+
+public interface YboardDAO {
+    
+    /**
+     * 총 리스트 갯수 
+     * @param yboard
+     * @return
+     */
+    public int selectTotalCountYboard(Yboard yboard);
+        
+    /**
+     * Yboard 리스트 출력 
+     * @param yboard
+     * @return
+     */
+    public List<Yboard> selectYboard(Yboard yboard);    
+    
+    /**
+     * 선택한 Yboard 보기 
+     * @param map
+     * @return
+     */
+    public Yboard viewYboard(Map<String, Object> map);    
+    
+    /**
+     * Yboard 입력 
+     * @param yboard
+     * @return
+     */
+    public int insertYboard(Yboard yboard);
+    
+    
+    /**
+     * Yboard 업데이트 
+     * @param yboard
+     * @return
+     */
+    public int updateYboard(Yboard yboard);
+    
+    /**
+     * 선택한 Yboard 삭제 
+     * @param map
+     * @return
+     */
+    public int deleteYboard(Map<String, Object> map);
+    
+}

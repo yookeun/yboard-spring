@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>	
+
+	<settings>
+		<setting name="cacheEnabled" value="true" />
+		<setting name="useGeneratedKeys" value="false" />		
+	</settings>
+	
+	<typeAliases>
+		<typeAlias alias="Yboard" type="com.yk.yboard.dto.Yboard"/>		
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="com/yk/yboard/sql/mysql/Yboard.xml" />
+	</mappers>
+</configuration>

@@ -7,28 +7,27 @@
 		SELECT COUNT(*)
 		FROM yboard
 		<trim prefix="WHERE" prefixOverrides="AND |OR">
-			<if test="Ognl@IsNotEmpty(searchText)">				
-				AND  ${searchColumn}  LIKE CONCAT('',#{searchText},'%')
+			<if test="@Ognl@isNotEmpty(searchText)">				
+				 AND ${searchColumn}  LIKE CONCAT('',#{searchText},'%')
 			</if>
-			<if test="Ognl@IsNotEmpty(priority)">				
+			<if test="@Ognl@isNotEmpty(priority)">				
 				<![CDATA[ 
-					AND priority >= #{priority}
+				 AND priority >= #{priority}
 				]]>	
 			</if>		
 		</trim>		
-		ORDER BY registDate DESC LIMIT #{start}, #{limit}		
 	</select>
 	
 	<select id="selectYboard"  resultType="Yboard" parameterType="Yboard">
 		SELECT boardID, boardTitle, priority, userName, userGender, registDate
 		FROM yboard
 		<trim prefix="WHERE" prefixOverrides="AND |OR">
-			<if test="Ognl@IsNotEmpty(searchText)">				
-				AND  ${searchColumn}  LIKE CONCAT('',#{searchText},'%')
+			<if test="@Ognl@isNotEmpty(searchText)">				
+				AND ${searchColumn}  LIKE CONCAT('',#{searchText},'%')
 			</if>
-			<if test="Ognl@IsNotEmpty(priority)">				
+			<if test="@Ognl@isNotEmpty(priority)">				
 				<![CDATA[ 
-					AND priority >= #{priority}
+				AND priority >= #{priority}
 				]]>	
 			</if>		
 		</trim>		
@@ -46,20 +45,20 @@
 	</insert>
 	
 	<update id="updateYboard" parameterType="Yboard">
-		UPDATE yboard
+		UPDATE yboard 
 	 	<trim prefix="SET" suffixOverrides=",">
-	 		<if test="Ognl@IsNotEmpty(boardTitle)">				
+	 		<if test="@Ognl@isNotEmpty(boardTitle)">	
 	 			boardTitle = #{boardTitle},
 	 		</if>	 	
-	 		<if test="Ognl@IsNotEmpty(boardContent)">				
+	 		<if test="@Ognl@isNotEmpty(boardContent)">				
 	 			boardContent = #{boardContent},
 	 		</if>	 	 		
-	 		<if test="Ognl@IsNotEmpty(userName)">				
+	 		<if test="@Ognl@isNotEmpty(userName)">				
 	 			userName = #{userName},
 	 		</if>	 		 	
-	 		<if test="Ognl@IsNotEmpty(userGender)">				
+	 		<if test="@Ognl@isNotEmpty(userGender)">				
 	 			userGender = #{userGender},
-	 		</if>		
+	 		</if>	
 	 	</trim>
 	 	WHERE boardID = #{boardID}
 	</update>

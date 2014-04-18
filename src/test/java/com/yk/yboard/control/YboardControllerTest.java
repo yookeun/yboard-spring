@@ -1,5 +1,13 @@
 package com.yk.yboard.control;
 
+
+import static org.junit.Assert.assertEquals;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,15 +34,68 @@ public class YboardControllerTest {
     @Autowired
     private YboardService yboardService;    
     
+    @Ignore
     @Test
     public void testInsertYboard() {
-	Yboard yboard = new Yboard();
-	yboard.setBoardTitle("테스트1");
-	yboard.setBoardContent("안녕하세요 테스트입니다.");
-	yboard.setUserName("홍길동");
-	yboard.setUserGender("M");
-	yboard.setPriority(3);
-	yboardService.insertYboard(yboard);
+		Yboard yboard = new Yboard();
+		yboard.setBoardTitle("테스트1");
+		yboard.setBoardContent("안녕하세요 테스트입니다.");
+		yboard.setUserName("홍길동");
+		yboard.setUserGender("M");
+		yboard.setPriority(3);
+		yboardService.insertYboard(yboard);
+    }
+    
+    @Ignore
+    @Test
+    public void testUpdateYboard() {
+		Yboard yboard = new Yboard();
+		yboard.setBoardID(1);
+		yboard.setBoardTitle("테스트2");
+		yboard.setBoardContent("안녕하세요 테스트입니다.2");
+		yboard.setUserName("홍길동2");
+		yboard.setUserGender("M");
+		yboard.setPriority(1);
+    	yboardService.updateYboard(yboard);
+    }
+    
+    @Ignore
+    @Test
+    public void testViewYboard() {
+    	Map<String, Object> map = new HashMap<String, Object>();
+    	map.put("boardID", 1);
+    	Yboard yboard = yboardService.viewYboard(map);
+    	assertEquals(yboard.getBoardID(), 1);
+    }
+    
+    @Ignore
+    @Test
+    public void testTotalCountYboard() {
+    	Yboard yboard = new Yboard();
+    	yboard.setSearchColumn("boardTitle");
+		yboard.setSearchText("테스트2");
+    	int total = yboardService.selectTotalCountYboard(yboard);
+    	assertEquals(total, 1);
+    }
+    
+    @Ignore
+    @Test
+    public void testSelectYboard() {
+     	Yboard yboard = new Yboard();
+    	yboard.setSearchColumn("boardTitle");
+		yboard.setSearchText("테스트2");
+		yboard.setStart(0);
+		yboard.setLimit(100);
+    	List<Yboard> list = yboardService.selectYboard(yboard);
+    	assertEquals(list.size(), 1);
+    }
+    
+    @Ignore
+    @Test
+    public void deleteYboard() {
+       	Map<String, Object> map = new HashMap<String, Object>();
+    	map.put("boardID", 1);  	
+    	yboardService.deleteYboard(map); 	
     }
 
 }

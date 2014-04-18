@@ -1,4 +1,4 @@
-1. 데이터베이스와 테이블 생성
+# 데이터베이스와 테이블 생성
 CREATE DATABASE  yboard_db;
 
 use yboard_db;

@@ -1,7 +1,6 @@
 package com.yk.yboard.control;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,9 +11,8 @@ import com.yk.yboard.dto.Yboard;
 import com.yk.yboard.service.YboardService;
 
 
-@Component
+
 @Controller
-@RequestMapping("/yboard")
 public class YboardController extends YboardLogger {
 
     

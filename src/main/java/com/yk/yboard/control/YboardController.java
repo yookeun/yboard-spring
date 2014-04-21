@@ -1,11 +1,16 @@
 package com.yk.yboard.control;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yk.common.ResultJSON;
 import com.yk.common.YboardLogger;
 import com.yk.yboard.dto.Yboard;
 import com.yk.yboard.service.YboardService;
@@ -14,7 +19,6 @@ import com.yk.yboard.service.YboardService;
 
 @Controller
 public class YboardController extends YboardLogger {
-
     
     @Autowired
     private YboardService yboardService;    
@@ -43,5 +47,21 @@ public class YboardController extends YboardLogger {
     
     
     
+    /**
+     * yboard 리스트 출력 
+     * @param yboard
+     * @return
+     */
+    @RequestMapping(value = "/select", method=RequestMethod.POST)
+    @ResponseBody 
+    public ResultJSON selectYboard(@ModelAttribute Yboard yboard) {
+	ResultJSON resultJSON = new ResultJSON();
+	int totalCount = yboardService.selectTotalCountYboard(yboard);
+	List<Yboard> yboardList = yboardService.selectYboard(yboard);	
+	resultJSON.setTotal(totalCount);
+	resultJSON.setItems(yboardList);
+	resultJSON.setSuccess(true);
+	return resultJSON;
+    }
     
 }

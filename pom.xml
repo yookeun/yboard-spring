@@ -125,6 +125,13 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 		
+		<!-- @AspectJ 사용 -->
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjweaver</artifactId>
+		    <version>1.8.0</version>
+		</dependency>		
+		
 		<!--  JSON 연동용 : MappingJacksonHttpMessageConverter -->
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>

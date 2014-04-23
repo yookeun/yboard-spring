@@ -58,6 +58,8 @@ public class YboardController extends YboardLogger {
 	ResultJSON resultJSON = new ResultJSON();
 	int totalCount = yboardService.selectTotalCountYboard(yboard);
 	List<Yboard> yboardList = yboardService.selectYboard(yboard);
+	System.out.println("totalCount==="+totalCount);
+	System.out.println("yboardList==="+yboardList.size());
 	resultJSON.setTotal(totalCount);
 	resultJSON.setItems(yboardList);
 	resultJSON.setSuccess(true);

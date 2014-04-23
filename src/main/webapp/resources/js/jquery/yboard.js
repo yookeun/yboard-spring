@@ -7,11 +7,11 @@
 function showList(start, limit) {
 	var records = "";
 	var search = {
-			start: start,
-			limit: limit
+			"start": start,
+			"limit": limit
 	};	
 	$.ajax({
-		type: 'POST',
+		type: 'POST',		
 		dataType: 'JSON',
 		data: search,
 		url: '/yboard/select',

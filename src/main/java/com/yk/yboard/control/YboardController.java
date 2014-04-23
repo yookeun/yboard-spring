@@ -57,7 +57,7 @@ public class YboardController extends YboardLogger {
     public ResultJSON selectYboard(@ModelAttribute Yboard yboard) {
 	ResultJSON resultJSON = new ResultJSON();
 	int totalCount = yboardService.selectTotalCountYboard(yboard);
-	List<Yboard> yboardList = yboardService.selectYboard(yboard);	
+	List<Yboard> yboardList = yboardService.selectYboard(yboard);
 	resultJSON.setTotal(totalCount);
 	resultJSON.setItems(yboardList);
 	resultJSON.setSuccess(true);

@@ -19,12 +19,13 @@ import org.springframework.stereotype.Component;
 public class YboardAOP extends YboardLogger {
 
     /**
-     * Control에 있는 메소드를 AOP한다.
-     *  만약 com.yk안에 여러개의 패키지가 있을 경우 || 으로 처리한다. 현재 yboard는 최대 4단계 depth만 허용한 상태이다. (com.yk.*.*.*.*) 
+     * Control에 있는 메소드를 AOP한다.      
      * @param joinPoint
      * @return
      */
-    @Around("execution(public * com.yk.*.*.*Controller.*(..)) || execution(public * com.yk.*.*.*.*Controller.*(..))")
+    //*  만약 com.yk안에 여러개의 패키지가 있을 경우 || 으로 처리한다. (com.yk.*.*.*.*)
+    //   @Around("execution(public * com.yk.*.*.*Controller.*(..)) || execution(public * com.yk.*.*.*.*Controller.*(..))")
+    @Around("execution(public * com.yk.*.*.*Controller.*(..))")
     public ResultJSON coverAround(ProceedingJoinPoint joinPoint) {
 	ResultJSON resultJSON = new ResultJSON();	
 	try {

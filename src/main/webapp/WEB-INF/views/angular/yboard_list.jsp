@@ -6,8 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Yboard for AngularJS</title>
 <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-<script src="resources/angular.min.js"></script>
-<script src="resources/js/angular/yboard.js"></script>
+<script src="resources/js/angular.min.js"></script>
 </head>
 <body>
 	<div class="container-fluid">
@@ -50,6 +49,7 @@
 						</thead>
 						<tbody ng-controller="yboardList">
 							<tr ng-repeat="yboard in yboards">
+								<td><input type="checkbox"/></td>
 								<td>{{yboard.boardID}}</td>
 								<td>{{yboard.boardTitle}}</td>
 								<td>{{yboard.priority}}</td>
@@ -75,4 +75,5 @@
 		</div>
 	</div>
 </body>
+<script src="resources/js/angular/yboard.js"></script>
 </html>

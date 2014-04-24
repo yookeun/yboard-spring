@@ -131,34 +131,27 @@
 		    <artifactId>aspectjweaver</artifactId>
 		    <version>1.8.0</version>
 		</dependency>		
-		
-		<!--  JSON 연동용 : MappingJacksonHttpMessageConverter -->
-		<!-- 
+
+		<!--  JSON 방식으로 통신 ( MappingJackson2HttpMessageConverter)  -->
 		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-mapper-asl</artifactId>
-			<version>1.8.1</version>
-		</dependency>		
-		-->
-
-	<dependency>
-		<groupId>com.fasterxml.jackson.core</groupId>
-		<artifactId>jackson-core</artifactId>
-		<version>2.0.4</version>
-	</dependency>
-
-	<dependency>
-		<groupId>com.fasterxml.jackson.core</groupId>
-		<artifactId>jackson-annotations</artifactId>
-		<version>2.0.4</version>
-	</dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.0.4</version>
+		</dependency>
 	
-	<dependency>
-		<groupId>com.fasterxml.jackson.core</groupId>
-		<artifactId>jackson-databind</artifactId>
-		<version>2.0.4</version>
-	</dependency>
-				
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.0.4</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.0.4</version>
+		</dependency>
+		
+		 		
 		<!--  BasicDataSource 추가 -->
 		<dependency>
 			<groupId>commons-dbcp</groupId>

@@ -4,16 +4,17 @@
  * @param start
  * @param limit
  */
-function showList(start, limit) {
+function showList(start, page) {
 	var records = "";
 	var search = {
-			"start": start,
-			"limit": limit
+			start: start,
+			limit: 10
 	};	
 	$.ajax({
 		type: 'POST',		
 		dataType: 'JSON',
-		data: search,
+		data:  JSON.stringify(search),
+	    contentType:"application/json; charset=UTF-8",
 		url: '/yboard/select',
 		error: function() {
 			alert("Loading failed!");
@@ -34,14 +35,45 @@ function showList(start, limit) {
 				$('#dataTable > tbody').html(records);
 			} else {
 				alert("Loading failed!");
-			}
+			}			
+			//페이징처리함수 호출 
+			goPagination(returnJSON.total, 10, page);
 		}
 	});
-
 };
 
 
-//초기화 
+/**
+ * 페이징 처리 
+ * @param total
+ * @param limit
+ * @param page_index
+ * 
+ */
+function goPagination(total, limit, page_index) {		
+	// http://bootstrappaginator.org/ 참고할 것!
+	var options = {
+		bootstrapMajorVersion : 3,
+		currentPage : page_index,
+		totalPages : Math.ceil(total / limit),
+		numberOfPages : 10,
+		onPageClicked : function(e, originalEvent, type, page) {
+			var start = 0;
+			// 1페이지라면
+			if (page === 1) {
+				start = 0;
+			} else if ( page > 1){
+				// 2페이지이상이면 10 ~ limit 건씩, 3페이지라면 20~limit 건씩 출력
+				start = (page - 1) * limit;
+			}
+			showList(start, page);	//리스트를 새로 조회한다. 
+		}
+	}
+	$('#yboardPagination').bootstrapPaginator(options);
+}
+            
+
+// 초기화
 (function(){
-	showList(0,10);
+	showList(0,1);  //0부터 1페이지를 출력 
 })();

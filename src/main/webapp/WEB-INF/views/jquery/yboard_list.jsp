@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Yboard for jQuery</title>
 <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-<script src="resources/jquery.min.js"></script>
+<script src="resources/js/jquery.min.js"></script>
 </head>
 <body>
 	<div class="container-fluid">
@@ -52,19 +52,15 @@
 					</table>
 				</div>
 			</div>			
+			<!-- 페이징처리 부분  -->
 			<div class="col-md-8">				
-				<ul class="pagination">
-					<li><a href="#">&laquo;</a></li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
+				<ul class="pagination" id="yboardPagination">
 				</ul>
 			</div>
 		</div>
 	</div>
 </body>
+<!-- 페이징처리를 위한 플러그인  -->
+<script src="resources/js/plugins/bootstrap-paginator.js"></script>
 <script src="resources/js/jquery/yboard.js"></script>
 </html>

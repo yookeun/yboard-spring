@@ -29,7 +29,7 @@
 								</span>
 							</div>
 						</div>
-						<div class="col-md-2">
+						<div class="col-md-3">
 							<button type="button" class="btn btn-primary">Add</button>
 							<button type="button" class="btn btn-danger">Delete</button>
 						</div>

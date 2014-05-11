@@ -8,7 +8,9 @@ function showList(start, page) {
 	var records = "";
 	var search = {
 			start: start,
-			limit: 10
+			limit: 10,
+			searchColumn: $('#yboard_searchColumn').val(),
+			searchText: $('#yboard_searchText').val()
 	};	
 	$.ajax({
 		type: 'POST',		
@@ -37,7 +39,11 @@ function showList(start, page) {
 				alert("Loading failed!");
 			}			
 			//페이징처리함수 호출 
-			goPagination(returnJSON.total, 10, page);
+			if (returnJSON.total > 0) {
+				goPagination(returnJSON.total, 10, page);
+			} else {
+				//$('#yboardPagination').hide();
+			}
 		}
 	});
 };
@@ -52,6 +58,7 @@ function showList(start, page) {
  */
 function goPagination(total, limit, page_index) {		
 	// http://bootstrappaginator.org/ 참고할 것!
+	console.log(total);
 	var options = {
 		bootstrapMajorVersion : 3,
 		currentPage : page_index,
@@ -70,7 +77,15 @@ function goPagination(total, limit, page_index) {
 		}
 	}
 	$('#yboardPagination').bootstrapPaginator(options);
-}
+};
+
+
+/**
+ * 검색 클릭 
+ */
+$('#yboard_search').click(function() {
+	showList(0,1);
+});
             
 
 // 초기화

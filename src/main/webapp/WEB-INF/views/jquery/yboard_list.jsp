@@ -21,24 +21,32 @@
 					<!-- Default panel contents -->
 					<div class="panel-heading">Search Box</div>
 					<div class="panel-body">
-						<div class="col-md-6">
-							<div class="input-group">
-								<input type="text" class="form-control"> <span
-									class="input-group-btn">
-									<button class="btn btn-default" type="button">Search!</button>
-								</span>
+						<div class="col-md-8">
+							<div class="form-group">
+								<select id="yboard_searchColumn" name="searchColumn">
+									<option value="boardTitle">TITLE</option>
+									<option value="userName">USERNAME</option>
+								</select>
+								<div class="input-group">
+									<input type="text" class="form-control" id="yboard_searchText"
+										name="searchText"> <span class="input-group-btn">
+										<button class="btn btn-default" type="button"
+											id="yboard_search">Search!</button>
+									</span>
+								</div>
 							</div>
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-4" style="text-align: right">
 							<button type="button" class="btn btn-primary">Add</button>
 							<button type="button" class="btn btn-danger">Delete</button>
 						</div>
 					</div>
+
 					<!-- Table -->
 					<table class="table table-striped" id="dataTable">
 						<thead>
 							<tr>
-								<th><input type="checkbox"/></th>
+								<th><input type="checkbox" /></th>
 								<th>ID</th>
 								<th>TITLE</th>
 								<th>PRIORITY</th>
@@ -51,9 +59,9 @@
 						</tbody>
 					</table>
 				</div>
-			</div>			
+			</div>
 			<!-- 페이징처리 부분  -->
-			<div class="col-md-8">				
+			<div class="col-md-12">
 				<ul class="pagination" id="yboardPagination">
 				</ul>
 			</div>

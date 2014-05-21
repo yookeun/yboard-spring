@@ -9,6 +9,7 @@ package com.yk.common;
 public class Search {    
     private int start;						//페이징 시작값
     private int limit;						//페이징 카운트 
+    private int page;
     private String searchColumn;			// 검색시 사용되는 컬럼명
     private String searchText;				//검색어
     private String startDate;				//시작일
@@ -25,6 +26,12 @@ public class Search {
     }
     public void setLimit(int limit) {
         this.limit = limit;
+    }    
+    public int getPage() {
+        return page;
+    }
+    public void setPage(int page) {
+        this.page = page;
     }
     public String getSearchColumn() {
         return searchColumn;

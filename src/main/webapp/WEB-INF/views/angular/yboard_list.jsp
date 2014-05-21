@@ -5,8 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Yboard for AngularJS</title>
-<link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-<script src="resources/js/angular.min.js"></script>
+<link href="resources/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="resources/bower_components/angular/angular.min.js"></script>
 </head>
 <body>
 	<div class="container-fluid">

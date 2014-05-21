@@ -4,12 +4,9 @@
  * @param start
  * @param limit
  */
-function showList(start, page) {
+function showList(search) {
 	var records = "";
-	var search = {
-			start: start,
-			limit: 10
-	};	
+	search.limit = 10;
 	$.ajax({
 		type: 'POST',		
 		dataType: 'JSON',
@@ -33,11 +30,14 @@ function showList(start, page) {
 						  				+ "</tr>"
 				});
 				$('#dataTable > tbody').html(records);
+				//페이징표시 
+				if (returnJSON.total > 0 ) {
+					goPagination(returnJSON.total, 10, search.page);
+				}
+				
 			} else {
 				alert("Loading failed!");
-			}			
-			//페이징처리함수 호출 
-			goPagination(returnJSON.total, 10, page);
+			}
 		}
 	});
 };
@@ -66,7 +66,11 @@ function goPagination(total, limit, page_index) {
 				// 2페이지이상이면 10 ~ limit 건씩, 3페이지라면 20~limit 건씩 출력
 				start = (page - 1) * limit;
 			}
-			showList(start, page);	//리스트를 새로 조회한다. 
+			var search = {
+					start: start,
+					page: page
+			};
+			showList(search);	//리스트를 새로 조회한다. 
 		}
 	}
 	$('#yboardPagination').bootstrapPaginator(options);
@@ -75,5 +79,9 @@ function goPagination(total, limit, page_index) {
 
 // 초기화
 (function(){
-	showList(0,1);  //0부터 1페이지를 출력 
+	var search = {
+			start: 0,
+			page: 1,
+	};
+	showList(search);  //0부터 1페이지를 출력 
 })();

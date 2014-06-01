@@ -12,7 +12,7 @@ import com.yk.common.Search;
  *
  */
 @SuppressWarnings("serial")
-public class Yboard extends Search implements Serializable {
+public class Yboard  implements Serializable {
     private int boardID;			  // : 고유키 
     private String boardIDEncrypt; //: 고유키 암호화 
     private String boardTitle;  		 //: 제목 

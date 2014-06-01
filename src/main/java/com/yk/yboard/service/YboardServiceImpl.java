@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import com.yk.yboard.dao.YboardDAO;
 import com.yk.yboard.dto.Yboard;
+import com.yk.yboard.dto.YboardSearch;
 
 @Component
 public class YboardServiceImpl implements YboardService {
@@ -17,13 +18,13 @@ public class YboardServiceImpl implements YboardService {
     
 
     @Override
-    public int selectTotalCountYboard(Yboard yboard) {	
-	return yboardDAO.selectTotalCountYboard(yboard);
+    public int selectTotalCountYboard(YboardSearch yboardSearch) {	
+	return yboardDAO.selectTotalCountYboard(yboardSearch);
     }
 
     @Override
-    public List<Yboard> selectYboard(Yboard yboard) {	
-	return yboardDAO.selectYboard(yboard);
+    public List<Yboard> selectYboard(YboardSearch yboardSearch) {	
+	return yboardDAO.selectYboard(yboardSearch);
     }
 
     @Override

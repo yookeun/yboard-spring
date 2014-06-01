@@ -10,6 +10,7 @@
 	
 	<typeAliases>
 		<typeAlias alias="Yboard" type="com.yk.yboard.dto.Yboard"/>		
+		<typeAlias alias="YboardSearch" type="com.yk.yboard.dto.YboardSearch"/>
 	</typeAliases>
 	
 	<mappers>

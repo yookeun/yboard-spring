@@ -17,6 +17,7 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.yk.yboard.dto.Yboard;
+import com.yk.yboard.dto.YboardSearch;
 import com.yk.yboard.service.YboardService;
 
 
@@ -71,7 +72,7 @@ public class YboardControllerTest {
     @Ignore
     @Test
     public void testTotalCountYboard() {
-    	Yboard yboard = new Yboard();
+    	YboardSearch yboard = new YboardSearch();
     	yboard.setSearchColumn("boardTitle");
 		yboard.setSearchText("테스트2");
     	int total = yboardService.selectTotalCountYboard(yboard);
@@ -81,7 +82,7 @@ public class YboardControllerTest {
     @Ignore
     @Test
     public void testSelectYboard() {
-     	Yboard yboard = new Yboard();
+     	YboardSearch yboard = new YboardSearch();
     	yboard.setSearchColumn("boardTitle");
 		yboard.setSearchText("테스트2");
 		yboard.setStart(0);

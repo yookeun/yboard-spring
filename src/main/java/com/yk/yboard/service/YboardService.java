@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.yk.yboard.dto.Yboard;
+import com.yk.yboard.dto.YboardSearch;
 
 public interface YboardService {
 
@@ -12,14 +13,14 @@ public interface YboardService {
      * @param yboard
      * @return
      */
-    public int selectTotalCountYboard(Yboard yboard);
+    public int selectTotalCountYboard(YboardSearch yboardSearch);
         
     /**
      * Yboard 리스트 출력 
      * @param yboard
      * @return
      */
-    public List<Yboard> selectYboard(Yboard yboard);    
+    public List<Yboard> selectYboard(YboardSearch yboardSearch);    
     
     /**
      * 선택한 Yboard 보기 

@@ -3,7 +3,7 @@
     
 <mapper namespace="Yboard">
 
-	<select id="selectTotalCountYboard"  resultType="int" parameterType="Yboard">
+	<select id="selectTotalCountYboard"  resultType="int" parameterType="YboardSearch">
 		SELECT COUNT(*)
 		FROM yboard
 		<trim prefix="WHERE" prefixOverrides="AND |OR">
@@ -18,7 +18,7 @@
 		</trim>		
 	</select>
 	
-	<select id="selectYboard"  resultType="Yboard" parameterType="Yboard">
+	<select id="selectYboard"  resultType="Yboard" parameterType="YboardSearch">
 		SELECT boardID, boardTitle, priority, userName, userGender, registDate
 		FROM yboard
 		<trim prefix="WHERE" prefixOverrides="AND |OR">

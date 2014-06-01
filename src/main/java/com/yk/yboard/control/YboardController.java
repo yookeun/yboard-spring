@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.yk.common.ResultJSON;
 import com.yk.common.YboardLogger;
 import com.yk.yboard.dto.Yboard;
+import com.yk.yboard.dto.YboardSearch;
 import com.yk.yboard.service.YboardService;
 
 
@@ -52,10 +53,10 @@ public class YboardController extends YboardLogger {
      */
     @RequestMapping(value = "/select", method=RequestMethod.POST)
     @ResponseBody 
-    public ResultJSON selectYboard(@RequestBody Yboard yboard) {
+    public ResultJSON selectYboard(@RequestBody YboardSearch yboardSearch) {
 	ResultJSON resultJSON = new ResultJSON();
-	int totalCount = yboardService.selectTotalCountYboard(yboard);
-	List<Yboard> yboardList = yboardService.selectYboard(yboard);
+	int totalCount = yboardService.selectTotalCountYboard(yboardSearch);
+	List<Yboard> yboardList = yboardService.selectYboard(yboardSearch);
 	resultJSON.setTotal(totalCount);
 	resultJSON.setItems(yboardList);
 	resultJSON.setSuccess(true);

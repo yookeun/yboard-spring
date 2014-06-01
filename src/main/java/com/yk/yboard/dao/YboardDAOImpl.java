@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.yk.yboard.dto.Yboard;
+import com.yk.yboard.dto.YboardSearch;
 
 @Component
 public class YboardDAOImpl implements YboardDAO {
@@ -16,13 +17,13 @@ public class YboardDAOImpl implements YboardDAO {
 	private SqlSession sqlSession;
 
 	@Override
-	public int selectTotalCountYboard(Yboard yboard) {	 
-	    return sqlSession.selectOne("Yboard.selectTotalCountYboard", yboard);
+	public int selectTotalCountYboard(YboardSearch yboardSearch) {	 
+	    return sqlSession.selectOne("Yboard.selectTotalCountYboard", yboardSearch);
 	}
 
 	@Override
-	public List<Yboard> selectYboard(Yboard yboard) {	    
-	    return sqlSession.selectList("Yboard.selectYboard", yboard);
+	public List<Yboard> selectYboard(YboardSearch yboardSearch) {	    
+	    return sqlSession.selectList("Yboard.selectYboard", yboardSearch);
 	}
 
 	@Override

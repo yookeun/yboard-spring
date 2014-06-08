@@ -6,7 +6,16 @@
  */
 function showList(search) {
 	var records = "";
+	if (search === null) {
+		var search = {
+			start: 0,
+			page: 1,
+		};
+	}
 	search.limit = 10;
+	search.searchColumn= $('#searchColumn').val();
+	search.searchText = $('#searchText').val();
+	
 	$.ajax({
 		type: 'POST',		
 		dataType: 'JSON',
@@ -33,6 +42,8 @@ function showList(search) {
 				//페이징표시 
 				if (returnJSON.total > 0 ) {
 					goPagination(returnJSON.total, 10, search.page);
+				} else {
+					
 				}
 				
 			} else {
@@ -41,6 +52,14 @@ function showList(search) {
 		}
 	});
 };
+
+/**
+ * 검색버튼 클릭시
+ */
+$('#searchBtn').click(function() {
+	showList(null);
+});
+
 
 
 /**
@@ -79,9 +98,8 @@ function goPagination(total, limit, page_index) {
 
 // 초기화
 (function(){
-	var search = {
-			start: 0,
-			page: 1,
-	};
-	showList(search);  //0부터 1페이지를 출력 
+	$('.selectpicker').selectpicker({
+		width: "auto"
+	});
+	showList(null);  //0부터 1페이지를 출력 
 })();

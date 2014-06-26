@@ -31,7 +31,7 @@ public class YboardController extends YboardLogger {
 	@RequestMapping(value = "/jquery", method = RequestMethod.GET)
 	protected String showJqueryPage(Model model) {
 		model.addAttribute("yboard", new Yboard()); // 초기세션처리를 위해 디폴트 처리
-		return "/jquery/yboard_list";
+		return "/jquery/yboard";
 	}
 
 	/**
@@ -43,7 +43,7 @@ public class YboardController extends YboardLogger {
 	@RequestMapping(value = "/angular", method = RequestMethod.GET)
 	protected String showAngularPage(Model model) {
 		model.addAttribute("yboard", new Yboard()); // 초기세션처리를 위해 디폴트 처리
-		return "/angular/yboard_list";
+		return "/angular/yboard";
 	}
 
 	/**

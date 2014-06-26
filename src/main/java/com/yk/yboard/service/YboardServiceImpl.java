@@ -12,39 +12,38 @@ import com.yk.yboard.dto.YboardSearch;
 
 @Component
 public class YboardServiceImpl implements YboardService {
-    
-    @Autowired 
-    private YboardDAO yboardDAO;
-    
 
-    @Override
-    public int selectTotalCountYboard(YboardSearch yboardSearch) {	
-	return yboardDAO.selectTotalCountYboard(yboardSearch);
-    }
+	@Autowired
+	private YboardDAO yboardDAO;
 
-    @Override
-    public List<Yboard> selectYboard(YboardSearch yboardSearch) {	
-	return yboardDAO.selectYboard(yboardSearch);
-    }
+	@Override
+	public int selectTotalCountYboard(YboardSearch yboardSearch) {
+		return yboardDAO.selectTotalCountYboard(yboardSearch);
+	}
 
-    @Override
-    public Yboard viewYboard(Map<String, Object> map) {	
-	return yboardDAO.viewYboard(map);
-    }
+	@Override
+	public List<Yboard> selectYboard(YboardSearch yboardSearch) {
+		return yboardDAO.selectYboard(yboardSearch);
+	}
 
-    @Override
-    public int insertYboard(Yboard yboard) {	
-	return yboardDAO.insertYboard(yboard);
-    }
+	@Override
+	public Yboard viewYboard(Map<String, Object> map) {
+		return yboardDAO.viewYboard(map);
+	}
 
-    @Override
-    public int updateYboard(Yboard yboard) {	
-	return yboardDAO.updateYboard(yboard);
-    }
+	@Override
+	public int insertYboard(Yboard yboard) {
+		return yboardDAO.insertYboard(yboard);
+	}
 
-    @Override
-    public int deleteYboard(Map<String, Object> map) {	
-	return yboardDAO.deleteYboard(map);
-    }
+	@Override
+	public int updateYboard(Yboard yboard) {
+		return yboardDAO.updateYboard(yboard);
+	}
+
+	@Override
+	public int deleteYboard(Map<String, Object> map) {
+		return yboardDAO.deleteYboard(map);
+	}
 
 }

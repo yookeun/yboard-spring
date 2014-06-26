@@ -12,38 +12,38 @@ import com.yk.yboard.dto.YboardSearch;
 
 @Component
 public class YboardDAOImpl implements YboardDAO {
-    
+
 	@Autowired
 	private SqlSession sqlSession;
 
 	@Override
-	public int selectTotalCountYboard(YboardSearch yboardSearch) {	 
-	    return sqlSession.selectOne("Yboard.selectTotalCountYboard", yboardSearch);
+	public int selectTotalCountYboard(YboardSearch yboardSearch) {
+		return sqlSession.selectOne("Yboard.selectTotalCountYboard", yboardSearch);
 	}
 
 	@Override
-	public List<Yboard> selectYboard(YboardSearch yboardSearch) {	    
-	    return sqlSession.selectList("Yboard.selectYboard", yboardSearch);
+	public List<Yboard> selectYboard(YboardSearch yboardSearch) {
+		return sqlSession.selectList("Yboard.selectYboard", yboardSearch);
 	}
 
 	@Override
-	public Yboard viewYboard(Map<String, Object> map) {	    
-	    return sqlSession.selectOne("Yboard.viewYboard", map);
+	public Yboard viewYboard(Map<String, Object> map) {
+		return sqlSession.selectOne("Yboard.viewYboard", map);
 	}
 
 	@Override
-	public int insertYboard(Yboard yboard) {	    
-	    return sqlSession.insert("Yboard.insertYboard", yboard);
+	public int insertYboard(Yboard yboard) {
+		return sqlSession.insert("Yboard.insertYboard", yboard);
 	}
 
 	@Override
 	public int updateYboard(Yboard yboard) {
-	    return sqlSession.update("Yboard.updateYboard", yboard);
+		return sqlSession.update("Yboard.updateYboard", yboard);
 	}
 
 	@Override
 	public int deleteYboard(Map<String, Object> map) {
-	    return sqlSession.delete("Yboard.deleteYboard", map);
+		return sqlSession.delete("Yboard.deleteYboard", map);
 	}
 
 }

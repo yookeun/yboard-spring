@@ -71,10 +71,8 @@ $('#searchBtn').click(function() {
  * 
  */
 function goPagination(total, limit, page_index) {		
-	
-	console.log("total = " + Math.ceil(total / limit));
-	console.log("page_index==" + page_index);
-	$('#yboardPagination').empty();
+	console.log('totalPages=='+Math.ceil(total / limit));
+	/*
 	$('#yboardPagination').twbsPagination({
         totalPages: Math.ceil(total / limit),
         visiblePages: 7,
@@ -94,9 +92,9 @@ function goPagination(total, limit, page_index) {
 			showList(search);	//리스트를 새로 조회한다. 
         }
     });
-	
+	*/
 	// http://bootstrappaginator.org/ 참고할 것!
-	/*
+
 	var options = {
 		bootstrapMajorVersion : 3,
 		currentPage : page_index,
@@ -119,7 +117,7 @@ function goPagination(total, limit, page_index) {
 		}
 	}
 	$('#yboardPagination').bootstrapPaginator(options);
-	*/
+	
 }
 
 

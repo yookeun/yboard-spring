@@ -4,19 +4,20 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * select, insert, update를 하고 처리된 결과를 JSON 으로 반환하기 위한 클래스 
+ * select, insert, update를 하고 처리된 결과를 JSON 으로 반환하기 위한 클래스
+ * 
  * @author ykkim
- *
+ * 
  */
 @SuppressWarnings("serial")
-public  class ResultJSON implements Serializable {
+public class ResultJSON implements Serializable {
 
-	private Object data;	
-	private List<?> items;	 // 한페이지에 출력되는 레코드 리스트	
-	private String msg; 		// 리턴 메시지
-	private Object success;		 
+	private Object data;
+	private List<?> items; // 한페이지에 출력되는 레코드 리스트
+	private String msg; // 리턴 메시지
+	private Object success;
 	private int total;
-	
+
 	/**
 	 * 단일 객체 저장 주로 view 용도
 	 * 
@@ -34,7 +35,7 @@ public  class ResultJSON implements Serializable {
 	public final Object getData() {
 		return data;
 	}
-	
+
 	/**
 	 * 객체 리스트 저장
 	 * 
@@ -52,8 +53,7 @@ public  class ResultJSON implements Serializable {
 	public final List<?> getItems() {
 		return items;
 	}
-	
-	
+
 	/**
 	 * 리턴 메시지 세팅 (실패시)
 	 * 
@@ -106,5 +106,5 @@ public  class ResultJSON implements Serializable {
 	 */
 	public final int getTotal() {
 		return total;
-	}	
+	}
 }

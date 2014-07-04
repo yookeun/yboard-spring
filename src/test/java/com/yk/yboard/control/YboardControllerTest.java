@@ -2,6 +2,7 @@ package com.yk.yboard.control;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -94,7 +95,9 @@ public class YboardControllerTest {
 	public void deleteYboard() {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("boardID", 1);
-		yboardService.deleteYboard(map);
+		List<Map<String, Object>> mapList = new ArrayList<Map<String, Object>>();
+		mapList.add(map);
+		yboardService.deleteYboard(mapList);
 	}
 
 }

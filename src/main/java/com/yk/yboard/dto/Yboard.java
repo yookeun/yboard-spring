@@ -2,7 +2,8 @@ package com.yk.yboard.dto;
 
 import java.io.Serializable;
 
-import com.yk.common.Search;
+import com.yk.common.YKStringUtil;
+
 
 /**
  * yboard Table model setter-getter Class
@@ -26,6 +27,7 @@ public class Yboard implements Serializable {
 	}
 
 	public void setBoardID(int boardID) {
+		setBoardIDEncrypt(YKStringUtil.getStringTmsEncryptoAesForInt(boardID));
 		this.boardID = boardID;
 	}
 

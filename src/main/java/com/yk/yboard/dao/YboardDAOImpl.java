@@ -42,8 +42,12 @@ public class YboardDAOImpl implements YboardDAO {
 	}
 
 	@Override
-	public int deleteYboard(Map<String, Object> map) {
-		return sqlSession.delete("Yboard.deleteYboard", map);
+	public int deleteYboard(List<Map<String, Object>> mapList) {
+		//return sqlSession.delete("Yboard.deleteYboard", map);
+		for (Map<String, Object> map: mapList) {
+			sqlSession.delete("Yboard.deleteYboard", map);
+		}
+		return 1;
 	}
 
 }

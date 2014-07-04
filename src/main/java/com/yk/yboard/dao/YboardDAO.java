@@ -54,6 +54,6 @@ public interface YboardDAO {
 	 * @param map
 	 * @return
 	 */
-	public int deleteYboard(Map<String, Object> map);
+	public int deleteYboard(List<Map<String, Object>> mapList);
 
 }

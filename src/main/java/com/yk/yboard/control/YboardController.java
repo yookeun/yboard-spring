@@ -1,6 +1,9 @@
 package com.yk.yboard.control;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yk.common.ResultJSON;
+import com.yk.common.YKStringUtil;
 import com.yk.common.YboardLogger;
 import com.yk.yboard.dto.Yboard;
 import com.yk.yboard.dto.YboardSearch;
@@ -60,6 +64,44 @@ public class YboardController extends YboardLogger {
 		List<Yboard> yboardList = yboardService.selectYboard(yboardSearch);
 		resultJSON.setTotal(totalCount);
 		resultJSON.setItems(yboardList);
+		resultJSON.setSuccess(true);
+		return resultJSON;
+	}
+	
+	
+	/**
+	 * yboard 입력
+	 * @param yboard
+	 * @return
+	 */
+	@RequestMapping(value = "/insert", method = RequestMethod.POST)
+	@ResponseBody
+	public ResultJSON insertYboard(@RequestBody Yboard yboard) {
+		ResultJSON resultJSON = new ResultJSON();
+		yboardService.insertYboard(yboard);
+		resultJSON.setSuccess(true);
+		return resultJSON;
+	}
+	
+	
+	/**
+	 * yboard에서 체크된 값들 삭제처리 
+	 * @param boardIDs
+	 * @return
+	 */
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	@ResponseBody
+	public ResultJSON deleteYboard(@RequestBody Map<String, Object> param) {
+		ResultJSON resultJSON = new ResultJSON();
+		String boardIDs = String.valueOf(param.get("boardIDs"));
+		List<Map<String, Object>> mapList = new ArrayList<Map<String, Object>>();
+		String[] boardIDEncrypts = boardIDs.split(",");
+		for (String boardIDEncrypt: boardIDEncrypts) {
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("boardID", YKStringUtil.getTmsDecryptoAesForInt(boardIDEncrypt));
+			mapList.add(map);
+		}
+		yboardService.deleteYboard(mapList);
 		resultJSON.setSuccess(true);
 		return resultJSON;
 	}

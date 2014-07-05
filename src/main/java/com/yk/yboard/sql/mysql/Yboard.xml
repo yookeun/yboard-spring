@@ -50,6 +50,9 @@
 	 		<if test="@Ognl@isNotEmpty(boardTitle)">	
 	 			boardTitle = #{boardTitle},
 	 		</if>	 	
+	 		<if test="@Ognl@isNotEmpty(priority)">	
+	 			priority = #{priority},
+	 		</if>	 		 		
 	 		<if test="@Ognl@isNotEmpty(boardContent)">				
 	 			boardContent = #{boardContent},
 	 		</if>	 	 		

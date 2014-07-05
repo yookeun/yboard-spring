@@ -31,7 +31,7 @@ function showList(search) {
 					records += '<tr>' 
 						  				+ '<td><input type="checkbox" name="yboardIDs" value="'+yboard.boardIDEncrypt+'"/></td>'
 						  				+ '<td>' + yboard.boardID + '</td>'
-						  				+ '<td>' + yboard.boardTitle +'</td>' 
+						  				+ '<td><a href="#" onclick="viewYboard(\''+yboard.boardIDEncrypt+'\')">' + yboard.boardTitle +'</a></td>' 
 						  				+ '<td>' + yboard.priority +'</td>'
 						  				+ '<td>' + yboard.userName +'</td>' 
 						  				+ '<td>' + yboard.userGender +'</td>' 
@@ -52,7 +52,7 @@ function showList(search) {
 			}
 		}
 	});
-};
+};[]
 
 /**
  * 검색버튼 클릭시
@@ -62,6 +62,36 @@ $('#searchBtn').click(function() {
 });
 
 
+/**
+ * 공지내용 보기 
+ * @param boardIDEncrypt
+ */
+function viewYboard(boardIDEncrypt) {
+	$.ajax({
+		type: "GET",
+		dataType: "JSON",
+		contentType: "application/json; charset=UTF-8",
+		url: "/yboard/view/"+boardIDEncrypt,
+		error: function() {
+			alert("Loading failed!");
+		},
+		success: function(returnJSON) {
+			if (returnJSON.success) {
+				var yboard = returnJSON.data;
+				$('#yboard_boardIDEncrypt').val(yboard.boardIDEncrypt);
+				$('#yboard_boardTitle').val(yboard.boardTitle);
+				$('#yboard_priority > option[value="'+yboard.priority+'"]').prop('selected',true);
+				$('#yboard_priority').selectpicker('render');
+				$('#yboard_userName').val(yboard.userName);
+				$(':radio[name="userGender"]').filter('[value="'+yboard.userGender+'"]').prop("checked", true);
+				$('#yboard_boardContent').text(yboard.boardContent);
+				$('#yboardEditModal').modal('show');
+			} else {
+				alert("Loading failed!");
+			}
+		}
+	});
+}
 
 /**
  * 페이징 처리 
@@ -153,18 +183,38 @@ function formValidator() {
 	return $('#yboardForm').data('bootstrapValidator').isValid();
 };
 
-
+/**
+ * 폼을 리셋한다.
+ * @param formID
+ */
 function resetForm(formID) {
 	$("#" + formID).each(function() {
 		this.reset();
 	});
-	$('#'+formID).data('bootstrapValidator').resetForm();
+	$('#yboard_boardIDEncrypt').val('')
+	var bootstrapValidator = $('#'+formID).data('bootstrapValidator');
+	if (bootstrapValidator != null) {
+		bootstrapValidator.resetForm();
+	}
 }
+
+/**
+ * 모달창이 닫힐때 폼내용을 reset해준다.
+ */
+$('.modal').on('hidden.bs.modal', function(){
+	$('#yboard_boardContent').text('');
+	resetForm('yboardForm');
+});
 
 /**
  * 저장 
  */
 $('#btnYboardSave').click(function() {
+	var boardIDEncrypts = $('#yboard_boardIDEncrypt').val();
+	var method = "insert";
+	if (boardIDEncrypts != "") {
+		method = "update";
+	}
 	//폼입력값 검증
 	if(!formValidator()) {
 		return;
@@ -177,7 +227,7 @@ $('#btnYboardSave').click(function() {
 		userName: $('#yboard_userName').val(),
 		userGender: $('input[type="radio"]:checked').val(),
 		boardContent: $('#yboard_boardContent').val(),
-		boardIDEncrypt: $('#yboard_boardIDEncrypt').val()
+		boardIDEncrypt: boardIDEncrypts
 	};
 	
 	$.ajax({
@@ -185,7 +235,7 @@ $('#btnYboardSave').click(function() {
 		dataType: "JSON",
 		data: JSON.stringify(yboard),
 		contentType : "application/json; charset=UTF-8",
-		url: '/yboard/insert',
+		url: '/yboard/'+method,
 		error: function() {
 			alert("Loading failed!");
 		},
@@ -193,6 +243,7 @@ $('#btnYboardSave').click(function() {
 			if (returnJSON.success) {
 				showList(null);
 				resetForm('yboardForm');
+				
 				$('#yboardEditModal').modal('hide');
 			} else {
 				alert(returnJSON.msg);

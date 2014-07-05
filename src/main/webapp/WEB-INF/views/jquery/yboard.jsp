@@ -92,14 +92,14 @@
 					<form class="form-horizontal" role="form" id="yboardForm">
 						<input type="hidden" id="yboard_boardIDEncrypt" name="boardIDEncrypt">
 						<div class="form-group">
-							<label for="inputEmail3" class="col-sm-2 control-label">제목</label>
+							<label for="yboard_boardTitle" class="col-sm-2 control-label">제목</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="yboard_boardTitle"
 									name="boardTitle" placeholder="제목을 입력하세요">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="inputPassword3" class="col-sm-2 control-label">우선순위</label>
+							<label for="yboard_priority" class="col-sm-2 control-label">우선순위</label>
 							<div class="col-sm-10">
 								<select id="yboard_priority" class="selectpicker">
 									<option value="1">1</option>
@@ -109,14 +109,14 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="inputEmail3" class="col-sm-2 control-label">작성자명</label>
+							<label for="yboard_userName" class="col-sm-2 control-label">작성자명</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="yboard_userName"
 									name="userName" placeholder="작성자명을 입력하세요">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="inputPassword3" class="col-sm-2 control-label">성별</label>
+							<label for="yboard_genderM" class="col-sm-2 control-label">성별</label>
 							<div class="col-sm-10">
 								<label class="radio-inline"> <input type="radio"
 									id="yboard_genderM" name="userGender" value="M">남성

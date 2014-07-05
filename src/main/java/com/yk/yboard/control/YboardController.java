@@ -8,6 +8,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -102,6 +103,38 @@ public class YboardController extends YboardLogger {
 			mapList.add(map);
 		}
 		yboardService.deleteYboard(mapList);
+		resultJSON.setSuccess(true);
+		return resultJSON;
+	}
+	
+	/**
+	 * yboard 보기 
+	 * @param boardIDs
+	 * @return
+	 */
+	@RequestMapping(value = "/view/{boardIDEncrypt}", method = RequestMethod.GET)
+	@ResponseBody
+	public ResultJSON viewYboard(@PathVariable String boardIDEncrypt) {
+		ResultJSON resultJSON = new ResultJSON();
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("boardID", YKStringUtil.getTmsDecryptoAesForInt(boardIDEncrypt));
+		resultJSON.setData(yboardService.viewYboard(map));
+		resultJSON.setSuccess(true);
+		return resultJSON;
+	}
+	
+	
+	/**
+	 * yboard 수정처리
+	 * @param boardIDs
+	 * @return
+	 */
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	@ResponseBody
+	public ResultJSON updateYboard(@RequestBody Yboard yboard) {
+		ResultJSON resultJSON = new ResultJSON();
+		yboard.setBoardID(YKStringUtil.getTmsDecryptoAesForInt(yboard.getBoardIDEncrypt()));
+		yboardService.updateYboard(yboard);
 		resultJSON.setSuccess(true);
 		return resultJSON;
 	}

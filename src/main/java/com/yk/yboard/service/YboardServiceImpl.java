@@ -4,13 +4,13 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.yk.yboard.dao.YboardDAO;
 import com.yk.yboard.dto.Yboard;
 import com.yk.yboard.dto.YboardSearch;
 
-@Component
+@Service
 public class YboardServiceImpl implements YboardService {
 
 	@Autowired

@@ -42,8 +42,8 @@ public class YboardServiceImpl implements YboardService {
 	}
 
 	@Override
-	public int deleteYboard(List<Map<String, Object>> mapList) {
-		return yboardDAO.deleteYboard(mapList);
+	public void deleteYboard(List<Map<String, Object>> mapList) {
+		yboardDAO.deleteYboard(mapList);
 	}
 
 }

@@ -6,7 +6,7 @@
 	<select id="selectTotalCountYboard"  resultType="int" parameterType="YboardSearch">
 		SELECT COUNT(*)
 		FROM yboard
-		<trim prefix="WHERE" prefixOverrides="AND |OR">
+		<where>
 			<if test="@Ognl@isNotEmpty(searchText)">				
 				 AND ${searchColumn}  LIKE CONCAT('',#{searchText},'%')
 			</if>
@@ -15,13 +15,13 @@
 				 AND priority >= #{priority}
 				]]>	
 			</if>		
-		</trim>		
+		</where>		
 	</select>
 	
 	<select id="selectYboard"  resultType="Yboard" parameterType="YboardSearch">
 		SELECT boardID, boardTitle, priority, userName, userGender, registDate
 		FROM yboard
-		<trim prefix="WHERE" prefixOverrides="AND |OR">
+		<where>
 			<if test="@Ognl@isNotEmpty(searchText)">				
 				AND ${searchColumn}  LIKE CONCAT('',#{searchText},'%')
 			</if>
@@ -30,7 +30,7 @@
 				AND priority >= #{priority}
 				]]>	
 			</if>		
-		</trim>		
+		</where>		
 		ORDER BY registDate DESC LIMIT #{start}, #{limit}
 	</select>
 	
@@ -46,7 +46,7 @@
 	
 	<update id="updateYboard" parameterType="Yboard">
 		UPDATE yboard 
-	 	<trim prefix="SET" suffixOverrides=",">
+	 	<set>
 	 		<if test="@Ognl@isNotEmpty(boardTitle)">	
 	 			boardTitle = #{boardTitle},
 	 		</if>	 	
@@ -62,7 +62,7 @@
 	 		<if test="@Ognl@isNotEmpty(userGender)">				
 	 			userGender = #{userGender},
 	 		</if>	
-	 	</trim>
+	 	</set>
 	 	WHERE boardID = #{boardID}
 	</update>
 	

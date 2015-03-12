@@ -189,6 +189,22 @@
 			<artifactId>cglib</artifactId>
 			<version>2.2</version>
 		</dependency>		
+		
+		<!--  JSONObject 모듈추가 -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20140107</version>
+		</dependency>
+		
+		<!-- 모바일 디바이스 체크추가 -->
+		<dependency>
+		     <groupId>org.springframework.mobile</groupId>
+		      <artifactId>spring-mobile-device</artifactId>
+		       <version>1.1.0.RELEASE</version>
+		  </dependency>		
+				
+				
 		<!-- ############################################### -->    
 		        
 	</dependencies>

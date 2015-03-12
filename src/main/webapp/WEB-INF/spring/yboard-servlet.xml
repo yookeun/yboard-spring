@@ -10,6 +10,11 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<mvc:resources mapping="/resources/**"  location="/resources/" />
+	
+	<!-- 모바일 디바이스 체크기능 설정 -->
+	<mvc:interceptors>
+  	<beans:bean class="org.springframework.mobile.device.DeviceResolverHandlerInterceptor" />
+	</mvc:interceptors>
 		
 	<!-- Spring 과 json과의  연동 설정 -->   
 	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">

@@ -35,4 +35,14 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
+	<!-- 모바일 디바이스 체크기능 추가  -->
+	<filter>
+		<filter-name>deviceResolverRequestFilter</filter-name>
+		<filter-class>org.springframework.mobile.device.DeviceResolverRequestFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>deviceResolverRequestFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping> 	
+
 </web-app>

@@ -52,7 +52,7 @@ function showList(search) {
 			}
 		}
 	});
-};[]
+};
 
 /**
  * 검색버튼 클릭시

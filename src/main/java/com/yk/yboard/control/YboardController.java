@@ -5,7 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mobile.device.Device;
+import org.springframework.mobile.device.DeviceUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,9 +38,16 @@ public class YboardController extends YboardLogger {
 	 * @return
 	 */
 	@RequestMapping(value = "/jquery", method = RequestMethod.GET)
-	protected String showJqueryPage(Model model) {
-		model.addAttribute("yboard", new Yboard()); // 초기세션처리를 위해 디폴트 처리
-		return "/jquery/yboard";
+	protected String showJqueryPage(HttpServletRequest request, Model model) {
+		
+		 Device device = DeviceUtils.getCurrentDevice(request);
+		 model.addAttribute("yboard", new Yboard()); // 초기세션처리를 위해 디폴트 처리
+		 if (device.isNormal()) {
+			 return "/jquery/yboard";	 
+		 } else {
+			 return "/jquery/yboard_mobile";
+		 }
+		
 	}
 
 	/**

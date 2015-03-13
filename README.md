@@ -22,7 +22,8 @@ REST API 구조로 되어 있습니다.
 java|1.7
 spring|3.2.8
 maven|3.0
-jquery|2.1.1
+jquery|1.10.2
+jquery-mobile|1.4.5
 angualr|1.2.16
 bower|1.3.12
 
@@ -44,5 +45,9 @@ Database는 mariadb나 mysql등으로 사용되었으나, MSSQL, ORACLE용으로
 
 현재 jquery부분은 완성이 되었으나, angularJS부분은 미완성되어 있고, 1.3버전으로 업그레이드할 예정입니다.
 
+------
+**추가사항 **
+
+- 2015.03.15 : JQuery-mobile부분이 추가되었습니다.(모바일화면에서 jquery 부분 조회가능함)
 
 

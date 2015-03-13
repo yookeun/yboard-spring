@@ -38,7 +38,7 @@
 						<a href="#" class="ui-btn ui-shadow ui-corner-all"	id="previousPage"><< Previous</a>
 					</div>
 					<div class="ui-block-b">
-						<a href="#" class="ui-btn ui-shadow ui-corner-all" id="nextPage">Next>>
+						<a href="#" class="ui-btn ui-shadow ui-corner-all" id="nextPage">Next >>
 						</a>
 					</div>
 				</div>
@@ -50,7 +50,7 @@
 			<h1>Help 페이지</h1>	
 		</div>				
 				
-		<div data-role="footer" data-theme="b">			
+		<div data-role="footer" data-theme="b" data-position="fixed">			
 			<h2>Yboard</h2>
 		</div>
 	</div>
@@ -62,7 +62,7 @@
 		<div role="main" class="ui-content" id='main_content"'>					
 			<pre id="boardContent"></pre>
 		</div>		
-			<a href="javascript:history.back();" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-back"	id="btnBack">Back</a>
+			<a href="#page1" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-back">Back</a>
 	</div>
 </body>
 <script src="resources/js/jquery/yboard_mobile.js"></script>

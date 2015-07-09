@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="yboard">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Yboard for AngularJS</title>
 <link href="resources/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="resources/bower_components/angular/angular.min.js"></script>
 </head>
-<body>
+<body ng-controller="yboardCtrl">
 	<div class="container-fluid">
 		<div class="page-header">
 			<h1>
@@ -47,8 +47,8 @@
 								<th>DATE</th>
 							</tr>							
 						</thead>
-						<tbody ng-controller="yboardList">
-							<tr ng-repeat="yboard in yboards">
+						<tbody>
+							<tr ng-repeat="yboard in yboardList">
 								<td><input type="checkbox"/></td>
 								<td>{{yboard.boardID}}</td>
 								<td>{{yboard.boardTitle}}</td>
@@ -60,7 +60,23 @@
 						</tbody>
 					</table>
 				</div>
-			</div>			
+			</div>
+                <paging
+                    class="small"
+                    page="currentPage" 
+                    page-size="pageSize" 
+                    total="total"
+                    adjacent="{{adjacent}}"
+                    dots="{{dots}}"
+                    scroll-top="{{scrollTop}}" 
+                    hide-if-empty="{{hideIfEmpty}}"
+                    ul-class="{{ulClass}}"
+                    active-class="{{activeClass}}"
+                    disabled-class="{{disabledClass}}"
+                    show-prev-next="{{showPrevNext}}"
+                    paging-action="DoCtrlPagingAct('Paging Clicked', page, pageSize, total)">
+                </paging> 					
+			<!-- 	
 			<div class="col-md-8">				
 				<ul class="pagination">
 					<li><a href="#">&laquo;</a></li>
@@ -72,8 +88,10 @@
 					<li><a href="#">&raquo;</a></li>
 				</ul>
 			</div>
+			-->
 		</div>
 	</div>
 </body>
-<script src="resources/js/angular/yboard.js"></script>
+<script src="resources/js/angular/controllers/yboardController.js"></script>
+<script src="resources/js/angular/modules/paging.js"></script>
 </html>

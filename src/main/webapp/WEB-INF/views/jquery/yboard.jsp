@@ -5,17 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Yboard for jQuery</title>
-<link
-	href="resources/bower_components/bootstrap/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<link
-	href="resources/bower_components/bootstrap-select/bootstrap-select.min.css"
-	rel="stylesheet">
-<link
-	href="resources/bower_components/bootstrapValidator/dist/css/bootstrapValidator.min.css"
-	rel="stylesheet">
+<link href="resources/bower_components/bootstrap/dist/css/bootstrap.min.css"	rel="stylesheet">
+<link href="resources/bower_components/bootstrap-select/bootstrap-select.min.css"	rel="stylesheet">
+<link href="resources/bower_components/bootstrapValidator/dist/css/bootstrapValidator.min.css" rel="stylesheet">
 
-<script src="resources/bower_components/jquery/jquery.min.js"></script>
+<script src="resources/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="resources/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="resources/bower_components/bootstrap-select/bootstrap-select.min.js"></script>
 <script src="resources/bower_components/bootstrap-paginator/build/bootstrap-paginator.min.js"></script>

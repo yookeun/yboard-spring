@@ -7,9 +7,9 @@ yboard-spring
 그래서 새로운 언어를 이용해서 간단한 게시판을 만들어보면 새로운 언어의 특성을 배울 수 있습니다.
 즉, 초급자에게 새로운 언어의 특성을 잘 보여주는 프로토타입이라고 할 수 있습니다.
 
-yboard-spring은 jquery(or angularJS)와 spring간의 ajax기반으로 json 메시지를 주고받는 
+yboard-spring은 jquery와 spring간의 ajax기반으로 json 메시지를 주고받는 
 REST API 구조로 되어 있습니다.
-따라서 본 소스를 통해서 jquery, spring간의 연동,  angualrJS, spring간의 연동 방법을 배울 수 있고, 
+따라서 본 소스를 통해서 jquery, spring간의 연동 방법을 배울 수 있고, 
 아울러서 bootstrap를 통해서 UI를 만들 수 있습니다.
 
 -------------
@@ -24,7 +24,6 @@ spring|3.2.8
 maven|3.0
 jquery|1.10.2
 jquery-mobile|1.4.5
-angualr|1.2.16
 bower|1.3.12
 
 
@@ -43,7 +42,6 @@ Database는 mariadb나 mysql등으로 사용되었으나, MSSQL, ORACLE용으로
 
 >**src/main/resources/install_sql/install_yboard_mysql.sql** 
 
-현재 jquery부분은 완성이 되었으나, angularJS부분은 미완성되어 있고, 1.3버전으로 업그레이드할 예정입니다.
 
 ------
 **추가사항**

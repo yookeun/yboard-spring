@@ -12,8 +12,8 @@
 <body>
 <div class="jumbotron">
   <h1>Hello, Welcome to Yboard!</h1>
-  <p>Yboard has made jquery-spring MVC and angualrJS-spring MVC</p>
-  <p><a class="btn btn-primary btn-lg" role="button" id="goJquery" href="/yboard/jquery">Yboard for jQuery</a>
-  <p><a class="btn btn-primary btn-lg" role="button" id="goAngular" href="/yboard/angular">Yboard for AngularJS</a></p>
+  <p>Yboard has made jquery-spring MVC</p>
+  <p><a class="btn btn-primary btn-lg" role="button" id="goJquery" href="/yboard/jquery">Start Yboard</a>  
 </div>
 </body>
+</html>
